@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Account struct {
 	owner   string
@@ -11,10 +13,11 @@ type Account struct {
 
 /* Aplicação para gerenciar contas correntes */
 func main() {
-	fmt.Println(Account{
-		owner:   "",
-		agency:  0,
-		account: 0,
-		balance: 0,
-	})
+	contaAntonio := Account{
+		owner:   "Antonio Martins",
+		agency:  10,
+		account: 123456,
+		balance: 100.50,
+	}
+	fmt.Println(contaAntonio)
 }
