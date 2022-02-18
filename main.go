@@ -13,11 +13,10 @@ type Account struct {
 
 /* Aplicação para gerenciar contas correntes */
 func main() {
-	contaAntonio := Account{
-		owner:   "Antonio Martins",
-		agency:  10,
-		account: 123456,
-		balance: 100.50,
-	}
-	fmt.Println(contaAntonio)
+	var accountAntonio *Account
+	accountAntonio = new(Account)
+	accountAntonio.owner = "Antonio"
+	accountAntonio.balance = 100.50
+
+	fmt.Println(*accountAntonio)
 }
