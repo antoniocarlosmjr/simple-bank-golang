@@ -11,7 +11,6 @@ type Account struct {
 	balance float64
 }
 
-/* Aplicação para gerenciar contas correntes */
 func main() {
 	var accountAntonio *Account
 	accountAntonio = new(Account)
@@ -24,16 +23,27 @@ func main() {
 	accountLuana.balance = 50.
 
 	fmt.Println(accountAntonio.balance)
-	*accountAntonio = withdrawAccount(*accountAntonio, 100)
+	fmt.Println(accountAntonio.withdraw(10))
+	fmt.Println(accountAntonio.balance)
+	fmt.Println(accountAntonio.deposit(100))
 	fmt.Println(accountAntonio.balance)
 }
 
-func withdrawAccount(account Account, value float64) Account {
-	if value <= account.balance {
-		account.balance = account.balance - value
-	} else {
-		fmt.Println("Impossível sacar valor, pois não possui saldo suficiente")
+func (account *Account) withdraw(value float64) string {
+	hasBalance := value <= account.balance
+	if hasBalance && value > 0 {
+		account.balance -= value
+		return "Saque realizado com sucesso"
 	}
 
-	return account
+	return "Saldo insuficiente ou valor informado é inválido"
+}
+
+func (account *Account) deposit(value float64) string {
+	if value > 0 {
+		account.balance += value
+		return "Depósito realizado com sucesso"
+	}
+
+	return "Valor do depósito é informado é inválido"
 }
