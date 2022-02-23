@@ -1,7 +1,9 @@
 package services
 
+import "simple-bank-golang/entities"
+
 type Account struct {
-	Owner   string
+	User    entities.User
 	Agency  int
 	Account int
 	Balance float64

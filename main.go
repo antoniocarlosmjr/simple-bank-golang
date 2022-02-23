@@ -9,12 +9,12 @@ import (
 func main() {
 	var accountAntonio *services.Account
 	accountAntonio = new(services.Account)
-	accountAntonio.Owner = "Antonio"
+	accountAntonio.User.Name = "Antonio"
 	accountAntonio.Balance = 100.50
 
 	var accountLuana *services.Account
 	accountLuana = new(services.Account)
-	accountLuana.Owner = "Luana"
+	accountLuana.User.Name = "Luana"
 	accountLuana.Balance = 50.
 
 	fmt.Println(accountAntonio.Balance)
