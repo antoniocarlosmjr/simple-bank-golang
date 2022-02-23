@@ -42,6 +42,6 @@ func (accountOrigin *Account) Transfer(value float64, accountTarget *Account) st
 	return "Valor é menor do que zero e conta de origem precisa de saldo em conta"
 }
 
-func (account *Account) SeeBalance() float64 {
+func (account *Account) GetBalance() float64 {
 	return account.balance
 }
