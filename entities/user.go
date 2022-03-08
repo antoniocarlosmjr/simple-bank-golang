@@ -1,7 +1,5 @@
 package entities
 
 type User struct {
-	Name      string
-	Cpf       string
-	Ocupation string
+	Name, Cpf, Ocupation string
 }

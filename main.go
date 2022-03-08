@@ -9,7 +9,7 @@ import (
 
 func main() {
 	userJoao := entities.User{"Joao", "1234", "Developer"}
-	accountJoao := entities.Account{userJoao, 100, 2001, 0}
+	accountJoao := entities.Account{userJoao, 100, 2001, "Corrente", 0}
 
 	var accountAntonio *services.Account
 	accountAntonio = new(services.Account)
@@ -31,4 +31,7 @@ func main() {
 
 	fmt.Println(accountAntonio.Transfer(50, accountLuana))
 	fmt.Println(*accountAntonio, *accountLuana)
+
+	fmt.Println(accountAntonio.PaymentBill(5))
+	fmt.Println(*accountAntonio)
 }

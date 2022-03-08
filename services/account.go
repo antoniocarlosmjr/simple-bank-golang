@@ -3,10 +3,10 @@ package services
 import "simple-bank-golang/entities"
 
 type Account struct {
-	User    entities.User
-	Agency  int
-	Account int
-	balance float64
+	User            entities.User
+	Agency, Account int
+	Type            string
+	balance         float64
 }
 
 func (account *Account) Withdraw(value float64) string {
@@ -44,4 +44,16 @@ func (accountOrigin *Account) Transfer(value float64, accountTarget *Account) st
 
 func (account *Account) GetBalance() float64 {
 	return account.balance
+}
+
+func (account *Account) PaymentBill(valueOfBill float64) bool {
+
+	balanceAccount := account.balance
+
+	if valueOfBill <= balanceAccount {
+		account.balance -= valueOfBill
+		return true
+	}
+
+	return false
 }
